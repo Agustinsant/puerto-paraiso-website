@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Posadas Puerto Paraiso. Tres destinos difrerenentes, para pesca deportiva, en lo mejor del alto Paraná.">
+    <meta name="viewport" content="width=device-width, intial-scale=1.0">
+    <meta property="og:url" content="https://www.posadaspuertoparaiso.com.ar" >
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Posadas Puerto Paraiso">
+    <meta property="og:description" content="Tres destinos difrerenentes, para pesca deportiva, en lo mejor del alto Paraná." >
+    <meta property="og:image" content="" >
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,300;0,400;0,600;1,100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.1/font/bootstrap-icons.css">
+    <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="/slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="/slick/slick-theme.css" />
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Posadas Puerto Paraiso</title>
+
+</head>
+
+<body>
+    <header>
+        <div class="nav-bar-container">
+            <nav class="nav-bar">
+                <div>
+                    <ul class="nav-ul-left">
+                        <li class="li nav-li" ><a class="nav-link-top" href="#" id="linkHome">Home</a></li>
+                        <li class="drop-down li nav-li">
+                            <a class="nav-link-top new" href="#posadas" >Nuestras Posadas</a>
+                            <ul class="drop-down-submenu" >
+                                <% posadas.forEach((posada) => { %>
+                                    <li class="drop-down-submenu-link" ><a class="aDrop" href="#<%= posada._id%>"><%= posada.name%></a></li>
+                                <% }) %>
+                                
+                            </ul>
+
+                        </li>
+                        <li><a class="nav-link-top" href="#contacto" id="linkContacto" >Contacto</a></li>
+                    </ul>
+
+                </div>
+
+
+                <div class="logo-nav" id="logo-nav">
+                    <a href="#"><img src="img/pp-logo-nav.svg" alt="Logo Posadas Puerto Paraiso"></a>
+                </div>
+
+
+                <div>
+                    <ul class="nav-ul-right">
+                        <li><a href="#" class="nav-ul-left-links">Es</a></li>
+                        <li><a href="#" class="nav-ul-left-links">En</a></li>
+                        <li><a href="#" class="nav-ul-left-links">Por</a></li>
+
+                    </ul>
+
+                </div>
+            </nav>
+        </div>
+
+        <div class="header-img">
+            <div class="header-text">
+                
+                <div class="header-text-top">
+                    <div class="header-text-bar"></div>
+                    <div class="header-text-top-text-container">
+                        <h1>Posadas Puerto <span>Paraiso</span></h1>
+                        <h2>Ita Ibaté - Yahapé - Itatí</h2>
+                    </div>
+                </div>
+                <p>Solo Puerto Paraiso le ofrece tres destinos diferentes en lo mejor Del Alto Parana, en la provincia
+                    de <span>Corrientes</span> , Rep. Argentina.
+                    Situados en los mejores puntos de pesca de la región, todas nuestras posadas poseen una
+                    infraestructura completa para que usted aproveche al máximo sus dias de pesca.</p>
+                <a class="contactanos-btn" href="#contacto"><img src="img/contactanos.svg" alt="Contactanos"></a>
+            </div>
+        </div>
+
+
+    </header>
+
+    <main>
+
+        <section>
+            <div class="cards-container" id="posadas">
+                <div class="cards-title">
+                    <h2>Posadas Destacadas</h2>
+                </div>
+                <div class="cards-body">
+                    <% for (let i = 0; i < 3; i++) { %>
+                        <div class="card">
+                            <div class="card-top">
+                                <div class="card-img">
+                                    <img src="img/<%=posadas[i]._id%>.jpg" alt="Posada <%= posadas[i].name %>">
+                                </div>
+                                <div class="card-label">
+                                    <p>Posada <%= posadas[i].name %></p>
+                                </div>
+                                <div class="card-description">
+                                    <p><%= posadas[i].shortdescription %></p>
+                                </div>
+                            </div>
+                            <div class="card-button">
+                                <a href="#<%= posadas[i]._id%>">Conocela</a>
+                            </div>
+                        </div>
+                    <% } %>
+                </div>
+            </div>
+        </section>
+
+        <div>
+            <% posadas.forEach((posada) => { %>
+                <section class="section-bg grey-bg" id="<%= posada._id%>">
+                    <div class="gallery-container">
+                        <div class="map-info">
+                            <div class="map">
+                                <iframe
+                                    src="<%= posada.location %>"
+                                    style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                                <img src="img/expand2.svg" alt="Boton para expendir mapa.">
+                            </div>
+                            <div class="posada-description">
+                                <h3>Posada <span> <%= posada.name %> </span></h3>
+                                <p> <%= posada.description %> </p>
+                            </div>
+            
+            
+                        </div>
+                        <div class="gallery-carrousel">
+                            <div><img src="img/gallery/03.jpg" alt="Foto de hombre con pez en la mano."></div>
+                            <div><img src="img/gallery/01.jpg" alt="Foto de bote en el rio."></div>
+                            <div><img src="img/gallery/02.jpg" alt="Foto de hombre pescando."></div>
+                            <div><img src="img/gallery/03.jpg" alt="Foto de hombre con pez en la mano."></div>
+                            <div><img src="img/gallery/01.jpg" alt="Foto de bote en el rio."></div>
+                            <div><img src="img/gallery/02.jpg" alt="Foto de hombre pescando."></div>
+                            <div><img src="img/gallery/03.jpg" alt="Foto de hombre con pez en la mano."></div>
+                            <div><img src="img/gallery/01.jpg" alt="Foto de bote en el rio."></div>
+                            <div><img src="img/gallery/02.jpg" alt="Foto de hombre pescando."></div>
+                            <div><img src="img/gallery/03.jpg" alt="Foto de hombre con pez en la mano."></div>
+                            <div><img src="img/gallery/01.jpg" alt="Foto de bote en el rio."></div>
+                            <div><img src="img/gallery/02.jpg" alt="Foto de hombre pescando."></div>
+                        </div>
+                
+                        <div class="gallery-nav gallery-nav-custom">
+                            <div><img src="img/gallery/03nav.jpg" alt="Miniatura de foto de hombre con pez en la mano."></div>
+                            <div><img src="img/gallery/01nav.jpg" alt="Miniatura de foto de bote en el rio."></div>
+                            <div><img src="img/gallery/02nav.jpg" alt="Miniaruta de foto de hombre pescando."></div>
+                            <div><img src="img/gallery/03nav.jpg" alt="Miniatura de foto de hombre con pez en la mano."></div>
+                            <div><img src="img/gallery/01nav.jpg" alt="Miniatura de foto de bote en el rio."></div>
+                            <div><img src="img/gallery/02nav.jpg" alt="Miniaruta de foto de hombre pescando."></div>
+                            <div><img src="img/gallery/03nav.jpg" alt="Miniatura de foto de hombre con pez en la mano."></div>
+                            <div><img src="img/gallery/01nav.jpg" alt="Miniatura de foto de bote en el rio."></div>
+                            <div><img src="img/gallery/02nav.jpg" alt="Miniaruta de foto de hombre pescando."></div>
+                            <div><img src="img/gallery/03nav.jpg" alt="Miniatura de foto de hombre con pez en la mano."></div>
+                            <div><img src="img/gallery/01nav.jpg" alt="Miniatura de foto de bote en el rio."></div>
+                            <div><img src="img/gallery/02nav.jpg" alt="Miniaruta de foto de hombre pescando."></div>
+                        </div>
+                        <div class="gallery-responsive">
+                            <div><img src="img/gallery/03Responsive.jpg" alt="Foto de hombre pescando."></div>
+                            <div><img src="img/gallery/01responsive.jpg" alt="Foto de hombre con pez en la mano."></div>
+                            <div><img src="img/gallery/02Responsive.jpg" alt="Foto de bote en el rio."></div>
+                            <div><img src="img/gallery/03Responsive.jpg" alt="Foto de hombre pescando."></div>
+                            <div><img src="img/gallery/01responsive.jpg" alt="Foto de hombre con pez en la mano."></div>
+                            <div><img src="img/gallery/02Responsive.jpg" alt="Foto de bote en el rio."></div>
+                            <div><img src="img/gallery/03Responsive.jpg" alt="Foto de hombre pescando."></div>
+                            <div><img src="img/gallery/01responsive.jpg" alt="Foto de hombre con pez en la mano."></div>
+                            <div><img src="img/gallery/02Responsive.jpg" alt="Foto de bote en el rio."></div>
+                            <div><img src="img/gallery/03Responsive.jpg" alt="Foto de hombre pescando."></div>
+                            <div><img src="img/gallery/01responsive.jpg" alt="Foto de hombre con pez en la mano."></div>
+                            <div><img src="img/gallery/02Responsive.jpg" alt="Foto de bote en el rio."></div>
+                        </div>
+                       
+                    </div>
+        
+                </section>
+
+            <% }) %>
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="footer-contact">
+            <div class="contact-container">
+                <div class="form-container" id="contacto">
+                    <form class="form" action="https://formspree.io/f/myylonja" method="post">
+                        <div class="form-group">
+                            <input class="form-group" type="text" name='nombre' placeholder="Ingrese su nombre..."
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <input class="form-group" type="tel" name='telefono'
+                                placeholder="Ingrese su número de teléfono..." required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="mail" placeholder="Ingrese su email..." required>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="comentario" id="" cols="50" rows="10"
+                                placeholder="Dejanos un comentario..." required></textarea>
+                        </div>
+                        <div class="form-submit">
+                            <input type="submit" value="ENVIAR">
+                        </div>
+                    </form>
+                </div>
+
+                <div class="contact-separator">
+
+                </div>
+
+                <div class="redes-container">
+                    <div>
+                        <a href="https://wa.me/554591033303?text=Hola!%20Estoy%20interesado%20en%20recibir%20más%20información%20acerca%20del%20servicio,%20por%20favor." target="_blank"><p><span><i class="bi bi-whatsapp"></i></span> Brasil: +55 45 9103-3303 </p></a>
+                        
+                    </div>
+                    <div>
+                        <a href="https://wa.me/5493781404143?text=Hola!%20Estoy%20interesado%20en%20recibir%20más%20información%20acerca%20del%20servicio,%20por%20favor." target="_blank"><p><span><i class="bi bi-whatsapp"></i></span> Itá Ibaté: +54 3781404143 </p></a>
+                        
+                    </div>
+                    <div>
+                        <a href="https://wa.me/5493781608638?text=Hola!%20Estoy%20interesado%20en%20recibir%20más%20información%20acerca%20del%20servicio,%20por%20favor." target="_blank"><p><span><i class="bi bi-whatsapp"></i></span> Itatí: +54 3781608638 </p></a>
+                    </div>
+                    <div>
+                        <a href="https://wa.me/5491130370941?text=Hola!%20Estoy%20interesado%20en%20recibir%20más%20información%20acerca%20del%20servicio,%20por%20favor." target="_blank"><p><span><i class="bi bi-whatsapp"></i></span> Yahapé: +54 1130370941 </p></a>
+                     
+                    </div>
+                    <div class="mail">
+                        <a href="mailto:pousadapuertoparaiso@gmail.com"><span><i class="bi bi-envelope-fill"></i></span>
+                            pousadapuertoparaiso@gmail.com</a>
+                    </div>
+                    <div class="redes">
+                        <a href="https://www.instagram.com/pousadaspuertoparaiso/" target="_blank"><i
+                                class="bi bi-instagram"></i></a>
+                        <a href="https://www.facebook.com/cabanaspuertoparaiso" target="_blank"><i
+                                class="bi bi-facebook"></i></a>
+                    </div>
+
+                    <div class="postal">
+                        <img src="img/postal.svg" alt="Esampa Postal">
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+        <div class="footer-img">
+            <div class="footer-copy">
+                <p>CopyRight - Posadas Puerto Paraiso - 2021</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="/slick/slick.min.js"></script>
+
+    <script type="text/javascript" src="/js/script.js"></script>
+
+
+
+</body>
+
+</html>
