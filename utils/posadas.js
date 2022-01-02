@@ -1,6 +1,6 @@
 const request = require('postman-request')
 
-const baseURL = 'http://localhost:3001'
+const baseURL = 'https://puerto-paraiso-api-v-1.herokuapp.com/'
 
 
 const getAllPosadas = (callback) => {

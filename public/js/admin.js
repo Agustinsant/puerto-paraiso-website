@@ -2,7 +2,7 @@ const form = document.querySelector('form')
 
 console.log(form)
 
-const url = "http://localhost:3001/posada"
+const url = "https://puerto-paraiso-api-v-1.herokuapp.com/posada"
 
 form.addEventListener('submit', (info) => {
     info.preventDefault()
