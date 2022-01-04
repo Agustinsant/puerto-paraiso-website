@@ -784,15 +784,30 @@ textarea{
 
 /* ------------------ADMIN PAGE-------------------- */
 
+
+
 .adminTitle{
     text-align: center;
+    margin: 40px 0 10px 0;
 }
+
+.form-container{
+    width: 500px;
+    margin: 0 auto
+}
+
 
 .adminForm{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+
+.adminForm>label>input{
+    display: inline;
+    width: 20px;
+}
+
 
 .adminForm input{
     width: 500px;
@@ -801,5 +816,47 @@ textarea{
 .adminForm textarea{
     width: 500px;
 }
+
+.posadas-admin-container{
+    width: 1200px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    
+}
+
+.posadas-admin-form{
+    text-align: center;
+    min-width: 350px;
+    border: solid 1px grey;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px;
+}
+.posadas-admin-form>input, .posadas-admin-form>textarea{
+    width: 100%;
+}
+
+.posada-admin{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   margin: 20px 0;
+}
+
+.eliminar-posada{
+    width: 92%;
+}
+
+h4{
+    margin: 20px 0 5px 0;
+}
+
+.editar-posada{
+    margin-top: 20px;
+}
+
+
 
 

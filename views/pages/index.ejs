@@ -93,95 +93,167 @@
                     <h2>Posadas Destacadas</h2>
                 </div>
                 <div class="cards-body">
-                    <% for (let i = 0; i < 3; i++) { %>
+                    <% posadas.forEach((posada) => { %>
+                        <% if(posada.prominent){ %>
                         <div class="card">
                             <div class="card-top">
                                 <div class="card-img">
-                                    <img src="img/card-image.jpg" alt="Posada <%= posadas[i].name %>">
+                                    <img src="img/card-image.jpg" alt="Posada <%= posada.name %>">
                                 </div>
                                 <div class="card-label">
-                                    <p>Posada <%= posadas[i].name %></p>
+                                    <p>Posada <%= posada.name %></p>
                                 </div>
                                 <div class="card-description">
-                                    <p><%= posadas[i].shortdescription %></p>
+                                    <p><%= posada.shortdescription %></p>
                                 </div>
                             </div>
                             <div class="card-button">
-                                <a href="#<%= posadas[i]._id%>">Conocela</a>
+                                <a href="#<%= posada._id%>">Conocela</a>
                             </div>
                         </div>
-                    <% } %>
+                        
+                        <% } %>
+                    <% }) %>
                 </div>
             </div>
         </section>
 
         <div>
-            <% posadas.forEach((posada) => { %>
-                <section class="section-bg grey-bg" id="<%= posada._id%>">
-                    <div class="gallery-container">
-                        <div class="map-info">
-                            <div class="map">
-                                <iframe
-                                    src="<%= posada.location %>"
-                                    style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                                <img src="img/expand2.svg" alt="Boton para expendir mapa.">
-                            </div>
-                            <div class="posada-description">
-                                <h3>Posada <span> <%= posada.name %> </span></h3>
-                                <p> <%= posada.description %> </p>
-                            </div>
-            
-            
-                        </div>
-                        <div class="gallery-carrousel">
-                            <div><img src="img/gallery/03.jpg" alt="Foto de hombre con pez en la mano."></div>
-                            <div><img src="img/gallery/01.jpg" alt="Foto de bote en el rio."></div>
-                            <div><img src="img/gallery/02.jpg" alt="Foto de hombre pescando."></div>
-                            <div><img src="img/gallery/03.jpg" alt="Foto de hombre con pez en la mano."></div>
-                            <div><img src="img/gallery/01.jpg" alt="Foto de bote en el rio."></div>
-                            <div><img src="img/gallery/02.jpg" alt="Foto de hombre pescando."></div>
-                            <div><img src="img/gallery/03.jpg" alt="Foto de hombre con pez en la mano."></div>
-                            <div><img src="img/gallery/01.jpg" alt="Foto de bote en el rio."></div>
-                            <div><img src="img/gallery/02.jpg" alt="Foto de hombre pescando."></div>
-                            <div><img src="img/gallery/03.jpg" alt="Foto de hombre con pez en la mano."></div>
-                            <div><img src="img/gallery/01.jpg" alt="Foto de bote en el rio."></div>
-                            <div><img src="img/gallery/02.jpg" alt="Foto de hombre pescando."></div>
-                        </div>
+            <% for (let i = 0; i < posadas.length; i++) { %>
+                <% if(i%2 !== 0) { %>
+                    <section class="section-bg" id="<%= posadas[i]._id %>">
+                        <div class="gallery-container">
+                            <div class="map-info">
+                                <div class="map">
+                                    <iframe
+                                        src="<%= posadas[i].location %>"
+                                        style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                                    <img src="img/expand2.svg" alt="Boton para expendir mapa.">
+                                </div>
+                                <div class="posada-description">
+                                    <h3>Posada <span> <%= posadas[i].name %> </span></h3>
+                                    <p> <%= posadas[i].description %> </p>
+                                </div>
                 
-                        <div class="gallery-nav gallery-nav-custom">
-                            <div><img src="img/gallery/03nav.jpg" alt="Miniatura de foto de hombre con pez en la mano."></div>
-                            <div><img src="img/gallery/01nav.jpg" alt="Miniatura de foto de bote en el rio."></div>
-                            <div><img src="img/gallery/02nav.jpg" alt="Miniaruta de foto de hombre pescando."></div>
-                            <div><img src="img/gallery/03nav.jpg" alt="Miniatura de foto de hombre con pez en la mano."></div>
-                            <div><img src="img/gallery/01nav.jpg" alt="Miniatura de foto de bote en el rio."></div>
-                            <div><img src="img/gallery/02nav.jpg" alt="Miniaruta de foto de hombre pescando."></div>
-                            <div><img src="img/gallery/03nav.jpg" alt="Miniatura de foto de hombre con pez en la mano."></div>
-                            <div><img src="img/gallery/01nav.jpg" alt="Miniatura de foto de bote en el rio."></div>
-                            <div><img src="img/gallery/02nav.jpg" alt="Miniaruta de foto de hombre pescando."></div>
-                            <div><img src="img/gallery/03nav.jpg" alt="Miniatura de foto de hombre con pez en la mano."></div>
-                            <div><img src="img/gallery/01nav.jpg" alt="Miniatura de foto de bote en el rio."></div>
-                            <div><img src="img/gallery/02nav.jpg" alt="Miniaruta de foto de hombre pescando."></div>
+                
+                            </div>
+                            <div class="gallery-carrousel">
+                                <div><img src="img/gallery/03.jpg" alt="Hombre con pez en la mano."></div>
+                                <div><img src="img/gallery/01.jpg" alt="Bote en el rio."></div>
+                                <div><img src="img/gallery/02.jpg" alt="Hombre pescando."></div>
+                                <div><img src="img/gallery/03.jpg" alt="Hombre con pez en la mano."></div>
+                                <div><img src="img/gallery/01.jpg" alt="Bote en el rio."></div>
+                                <div><img src="img/gallery/02.jpg" alt="Hombre pescando."></div>
+                                <div><img src="img/gallery/03.jpg" alt="Hombre con pez en la mano."></div>
+                                <div><img src="img/gallery/01.jpg" alt="Bote en el rio."></div>
+                                <div><img src="img/gallery/02.jpg" alt="Hombre pescando."></div>
+                                <div><img src="img/gallery/03.jpg" alt="Hombre con pez en la mano."></div>
+                                <div><img src="img/gallery/01.jpg" alt="Bote en el rio."></div>
+                                <div><img src="img/gallery/02.jpg" alt="Hombre pescando."></div>
+                            </div>
+                    
+                            <div class="gallery-nav gallery-nav-custom">
+                                <div><img src="img/gallery/03nav.jpg" alt="Hombre con pez en la mano."></div>
+                                <div><img src="img/gallery/01nav.jpg" alt="Bote en el rio."></div>
+                                <div><img src="img/gallery/02nav.jpg" alt="Hombre pescando."></div>
+                                <div><img src="img/gallery/03nav.jpg" alt="Hombre con pez en la mano."></div>
+                                <div><img src="img/gallery/01nav.jpg" alt="Bote en el rio."></div>
+                                <div><img src="img/gallery/02nav.jpg" alt="Hombre pescando."></div>
+                                <div><img src="img/gallery/03nav.jpg" alt="Hombre con pez en la mano."></div>
+                                <div><img src="img/gallery/01nav.jpg" alt="Bote en el rio."></div>
+                                <div><img src="img/gallery/02nav.jpg" alt="Hombre pescando."></div>
+                                <div><img src="img/gallery/03nav.jpg" alt="Hombre con pez en la mano."></div>
+                                <div><img src="img/gallery/01nav.jpg" alt="Bote en el rio."></div>
+                                <div><img src="img/gallery/02nav.jpg" alt="Hombre pescando."></div>
+                            </div>
+                            <div class="gallery-responsive">
+                                <div><img src="img/gallery/03Responsive.jpg" alt="Hombre pescando."></div>
+                                <div><img src="img/gallery/01responsive.jpg" alt="Hombre con pez en la mano."></div>
+                                <div><img src="img/gallery/02Responsive.jpg" alt="Bote en el rio."></div>
+                                <div><img src="img/gallery/03Responsive.jpg" alt="Hombre pescando."></div>
+                                <div><img src="img/gallery/01responsive.jpg" alt="Hombre con pez en la mano."></div>
+                                <div><img src="img/gallery/02Responsive.jpg" alt="Bote en el rio."></div>
+                                <div><img src="img/gallery/03Responsive.jpg" alt="Hombre pescando."></div>
+                                <div><img src="img/gallery/01responsive.jpg" alt="Hombre con pez en la mano."></div>
+                                <div><img src="img/gallery/02Responsive.jpg" alt="Bote en el rio."></div>
+                                <div><img src="img/gallery/03Responsive.jpg" alt="Hombre pescando."></div>
+                                <div><img src="img/gallery/01responsive.jpg" alt="Hombre con pez en la mano."></div>
+                                <div><img src="img/gallery/02Responsive.jpg" alt="Bote en el rio."></div>
+                            </div>
+                           
                         </div>
-                        <div class="gallery-responsive">
-                            <div><img src="img/gallery/03Responsive.jpg" alt="Foto de hombre pescando."></div>
-                            <div><img src="img/gallery/01responsive.jpg" alt="Foto de hombre con pez en la mano."></div>
-                            <div><img src="img/gallery/02Responsive.jpg" alt="Foto de bote en el rio."></div>
-                            <div><img src="img/gallery/03Responsive.jpg" alt="Foto de hombre pescando."></div>
-                            <div><img src="img/gallery/01responsive.jpg" alt="Foto de hombre con pez en la mano."></div>
-                            <div><img src="img/gallery/02Responsive.jpg" alt="Foto de bote en el rio."></div>
-                            <div><img src="img/gallery/03Responsive.jpg" alt="Foto de hombre pescando."></div>
-                            <div><img src="img/gallery/01responsive.jpg" alt="Foto de hombre con pez en la mano."></div>
-                            <div><img src="img/gallery/02Responsive.jpg" alt="Foto de bote en el rio."></div>
-                            <div><img src="img/gallery/03Responsive.jpg" alt="Foto de hombre pescando."></div>
-                            <div><img src="img/gallery/01responsive.jpg" alt="Foto de hombre con pez en la mano."></div>
-                            <div><img src="img/gallery/02Responsive.jpg" alt="Foto de bote en el rio."></div>
+            
+                    </section>
+                    <% } %>
+                <% if(i%2 === 0) { %>
+                    <section class="section-bg grey-bg" id="<%= posadas[i]._id %>">
+                        <div class="gallery-container">
+                            <div class="map-info">
+                                <div class="map">
+                                    <iframe
+                                        src="<%= posadas[i].location %>"
+                                        style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                                    <img src="img/expand2.svg" alt="Boton para expendir mapa.">
+                                </div>
+                                <div class="posada-description">
+                                    <h3>Posada <span> <%= posadas[i].name %> </span></h3>
+                                    <p> <%= posadas[i].description %> </p>
+                                </div>
+                
+                
+                            </div>
+                            <div class="gallery-carrousel">
+                                <div><img src="img/gallery/03.jpg" alt="Hombre con pez en la mano."></div>
+                                <div><img src="img/gallery/01.jpg" alt="Bote en el rio."></div>
+                                <div><img src="img/gallery/02.jpg" alt="Hombre pescando."></div>
+                                <div><img src="img/gallery/03.jpg" alt="Hombre con pez en la mano."></div>
+                                <div><img src="img/gallery/01.jpg" alt="Bote en el rio."></div>
+                                <div><img src="img/gallery/02.jpg" alt="Hombre pescando."></div>
+                                <div><img src="img/gallery/03.jpg" alt="Hombre con pez en la mano."></div>
+                                <div><img src="img/gallery/01.jpg" alt="Bote en el rio."></div>
+                                <div><img src="img/gallery/02.jpg" alt="Hombre pescando."></div>
+                                <div><img src="img/gallery/03.jpg" alt="Hombre con pez en la mano."></div>
+                                <div><img src="img/gallery/01.jpg" alt="Bote en el rio."></div>
+                                <div><img src="img/gallery/02.jpg" alt="Hombre pescando."></div>
+                            </div>
+                    
+                            <div class="gallery-nav gallery-nav-custom">
+                                <div><img src="img/gallery/03nav.jpg" alt="Hombre con pez en la mano."></div>
+                                <div><img src="img/gallery/01nav.jpg" alt="Bote en el rio."></div>
+                                <div><img src="img/gallery/02nav.jpg" alt="Hombre pescando."></div>
+                                <div><img src="img/gallery/03nav.jpg" alt="Hombre con pez en la mano."></div>
+                                <div><img src="img/gallery/01nav.jpg" alt="Bote en el rio."></div>
+                                <div><img src="img/gallery/02nav.jpg" alt="Hombre pescando."></div>
+                                <div><img src="img/gallery/03nav.jpg" alt="Hombre con pez en la mano."></div>
+                                <div><img src="img/gallery/01nav.jpg" alt="Bote en el rio."></div>
+                                <div><img src="img/gallery/02nav.jpg" alt="Hombre pescando."></div>
+                                <div><img src="img/gallery/03nav.jpg" alt="Hombre con pez en la mano."></div>
+                                <div><img src="img/gallery/01nav.jpg" alt="Bote en el rio."></div>
+                                <div><img src="img/gallery/02nav.jpg" alt="Hombre pescando."></div>
+                            </div>
+                            <div class="gallery-responsive">
+                                <div><img src="img/gallery/03Responsive.jpg" alt="Hombre pescando."></div>
+                                <div><img src="img/gallery/01responsive.jpg" alt="Hombre con pez en la mano."></div>
+                                <div><img src="img/gallery/02Responsive.jpg" alt="Bote en el rio."></div>
+                                <div><img src="img/gallery/03Responsive.jpg" alt="Hombre pescando."></div>
+                                <div><img src="img/gallery/01responsive.jpg" alt="Hombre con pez en la mano."></div>
+                                <div><img src="img/gallery/02Responsive.jpg" alt="Bote en el rio."></div>
+                                <div><img src="img/gallery/03Responsive.jpg" alt="Hombre pescando."></div>
+                                <div><img src="img/gallery/01responsive.jpg" alt="Hombre con pez en la mano."></div>
+                                <div><img src="img/gallery/02Responsive.jpg" alt="Bote en el rio."></div>
+                                <div><img src="img/gallery/03Responsive.jpg" alt="Hombre pescando."></div>
+                                <div><img src="img/gallery/01responsive.jpg" alt="Hombre con pez en la mano."></div>
+                                <div><img src="img/gallery/02Responsive.jpg" alt="Bote en el rio."></div>
+                            </div>
+                           
                         </div>
-                       
-                    </div>
-        
-                </section>
+            
+                    </section>
 
-            <% }) %>
+
+                <% } %>
+
+            <% } %>
         </div>
 
     </main>

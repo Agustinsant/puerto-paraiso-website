@@ -33,32 +33,76 @@
   </head>
 
   <body>
-    <h1 class="adminTitle">Carga de nuevas Posadas</h1>
+    <div class="form-container">
+      <h1 class="adminTitle">Carga de nuevas Posadas</h1>
 
-    <form class="adminForm">
-      <input
-        type="text"
-        placeholder="Ingrese el nombre de la Posada"
-        name="name"
-      />
+      <form class="adminForm">
+        <input
+          type="text"
+          placeholder="Ingrese el nombre de la Posada"
+          name="name"
+        />
 
-      <input
-        type="text"
-        placeholder="Ingrese una url de ubicación de google maps"
-        name="location"
-      />
+        <input
+          type="text"
+          placeholder="Ingrese una url de ubicación de google maps"
+          name="location"
+        />
 
-      <input
-        type="text"
-        placeholder="Ingrese una descripcion breve"
-        name="shortdescription"
-        maxlength="120"
-      />
+        <input
+          type="text"
+          placeholder="Ingrese una descripcion breve"
+          name="shortdescription"
+          maxlength="120"
+        />
 
-      <textarea name="description" id="" cols="30" rows="10" placeholder="Agrega la descripción de la Posada." maxlength="500" ></textarea>
+        <textarea
+          name="description"
+          id=""
+          cols="30"
+          rows="10"
+          placeholder="Agrega la descripción de la Posada."
+          maxlength="580"
+        ></textarea>
 
-      <input type="submit" value="CARGAR" />
-    </form>
+        <label
+          >Posada Destacada
+          <input type="checkbox" name="prominent" />
+        </label>
+
+        <input type="submit" value="CARGAR" />
+      </form>
+    </div>
+
+    <h2 class="adminTitle">LISTADO DE POSADAS</h2>
+
+    <div class="posadas-admin-container">
+      <% posadas.forEach (posada => { %>
+      
+        <div class="posada-admin" >
+          <form class="posadas-admin-form">
+            <h4>Name</h4>
+            <input type="text" name="name" value="<%= posada.name %>" />
+            <h4>Location</h4>
+            <input name="location" value="<%= posada.location %>"></input>
+            <h4>Short Description</h4>
+            <textarea name="shortdescription" cols="30" rows="5" maxlength="120"><%= posada.shortdescription%></textarea>
+            <h4>Description</h4>
+            <textarea name="description" cols="30" rows="10" maxlength="500"><%= posada.description %></textarea>
+            <h4>ID</h4>
+            <input type="text" name="id" value="<%= posada._id %>" disabled />
+            <input type="submit" value="EDITAR" class="editar-posada">
+          </form>
+       
+          
+            <button type="submit" value="<%= posada._id %>" class="eliminar-posada">ELIMINAR</button>
+
+        </div>
+
+        
+        
+      <% }) %>
+    </div>
 
     <script type="text/javascript" src="/js/admin.js"></script>
   </body>

@@ -19,7 +19,10 @@ app.get('', (req, res) => {
 })
 
 app.get('/admin', (req, res) => {
-    res.render('pages/admin')
+    posadasModule.getAllPosadas((err, posadas) => {
+        if(err) return res.status(500).send(err)
+        return res.render('pages/admin', { posadas })
+    })
 })
 
 app.listen(port, () => {
